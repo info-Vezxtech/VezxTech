@@ -1,0 +1,25 @@
+{
+  "name": "vezxtech-monorepo",
+  "version": "1.0.0",
+  "description": "VezxTech - Professional website builder for local shops",
+  "private": true,
+  "workspaces": [
+    "web",
+    "server"
+  ],
+  "scripts": {
+    "dev": "npm run dev:web & npm run dev:server",
+    "dev:web": "cd web && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build": "npm run build:web && npm run build:server",
+    "build:web": "cd web && npm run build",
+    "build:server": "cd server && npm run build"
+  },
+  "keywords": [
+    "vezxtech",
+    "shop-websites",
+    "mern-stack"
+  ],
+  "author": "VezxTech Team",
+  "license": "MIT"
+}
