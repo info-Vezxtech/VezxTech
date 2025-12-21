@@ -20,7 +20,7 @@ export default function PricingPage() {
         'Google Maps integration',
         'WhatsApp click-to-chat button',
         'Contact information display',
-        'Fast delivery (3-5 days)',
+        'Delivery in 5-7 days',
         'Mobile-optimized design',
         '3 months technical support',
         'Basic SEO setup',
@@ -39,10 +39,10 @@ export default function PricingPage() {
         'Image gallery (up to 20 images)',
         'Contact form with email notifications',
         'Google Maps with custom marker',
-        'SEO optimization',
+        'Advanced SEO optimization',
         'Google Analytics integration',
         '6 months technical support',
-        'Content management training'
+        'Delivery in 10-12 days'
       ],
       popular: true
     },
@@ -53,16 +53,16 @@ export default function PricingPage() {
       description: 'Complete solution for established businesses',
       features: [
         'Everything in Standard plan',
-        'Custom domain setup (.com/.in)',
-        'Professional email setup',
+        'Free custom domain setup (.com/.in)',
+        'Professional email configuration',
         'Online booking/appointment system',
         'Advanced contact forms',
-        'Live chat integration',
+        'WhatsApp Business integration',
         'Enhanced SEO & social sharing',
         'Payment gateway integration',
         'Priority support & updates',
         '1 year maintenance included',
-        'Monthly performance reports'
+        'Delivery in 12-15 days'
       ]
     }
   ]
@@ -70,15 +70,15 @@ export default function PricingPage() {
   const addOns = [
     {
       name: 'Custom Domain',
-      price: '800',
+      price: '1,500',
       period: 'per year',
       description: 'Professional .com or .in domain for your business'
     },
     {
       name: 'Business Email',
-      price: '500',
+      price: '1,200',
       period: 'per year',
-      description: 'Professional email addresses (e.g., info@yourbusiness.com)'
+      description: 'Professional email addresses with 10GB storage (e.g., info@yourbusiness.com)'
     },
     {
       name: 'Professional Photography',
@@ -111,7 +111,7 @@ export default function PricingPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-background-light to-white">
+      <section className="pt-28 pb-12 bg-gradient-to-br from-background-light to-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="heading-1 mb-6">
@@ -140,9 +140,9 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="section-padding bg-background-light">
+      <section className="py-12 bg-background-light">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <PricingCard key={index} {...plan} />
             ))}
@@ -151,7 +151,7 @@ export default function PricingPage() {
       </section>
 
       {/* Add-ons Section */}
-      <section className="section-padding bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-2 mb-4">Add-Ons & Extras</h2>
@@ -179,7 +179,7 @@ export default function PricingPage() {
       </section>
 
       {/* Comparison Table */}
-      <section className="section-padding bg-background-light">
+      <section className="py-12 bg-background-light">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-2 mb-4">Plan Comparison</h2>
@@ -188,60 +188,60 @@ export default function PricingPage() {
             <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
               <thead className="bg-gradient-to-r from-primary-blue to-secondary-indigo text-white">
                 <tr>
-                  <th className="px-6 py-4 text-left">Feature</th>
-                  <th className="px-6 py-4 text-center">Basic</th>
-                  <th className="px-6 py-4 text-center">Standard</th>
-                  <th className="px-6 py-4 text-center">Premium</th>
+                  <th className="px-4 py-3 text-left text-sm">Feature</th>
+                  <th className="px-4 py-3 text-center text-sm">Basic</th>
+                  <th className="px-4 py-3 text-center text-sm">Standard</th>
+                  <th className="px-4 py-3 text-center text-sm">Premium</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="px-6 py-4">Number of Pages</td>
-                  <td className="px-6 py-4 text-center">1</td>
-                  <td className="px-6 py-4 text-center">Up to 5</td>
-                  <td className="px-6 py-4 text-center">Up to 5</td>
+                  <td className="px-4 py-3 text-sm">Number of Pages</td>
+                  <td className="px-4 py-3 text-center text-sm">1</td>
+                  <td className="px-4 py-3 text-center text-sm">Up to 5</td>
+                  <td className="px-4 py-3 text-center text-sm">Up to 5</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-6 py-4">Mobile Responsive</td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
+                  <td className="px-4 py-3 text-sm">Mobile Responsive</td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4">Google Maps</td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
+                  <td className="px-4 py-3 text-sm">Google Maps</td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-6 py-4">Contact Form</td>
-                  <td className="px-6 py-4 text-center">-</td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
+                  <td className="px-4 py-3 text-sm">Contact Form</td>
+                  <td className="px-4 py-3 text-center text-sm">-</td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4">Image Gallery</td>
-                  <td className="px-6 py-4 text-center">-</td>
-                  <td className="px-6 py-4 text-center">Up to 20</td>
-                  <td className="px-6 py-4 text-center">Up to 20</td>
+                  <td className="px-4 py-3 text-sm">Image Gallery</td>
+                  <td className="px-4 py-3 text-center text-sm">-</td>
+                  <td className="px-4 py-3 text-center text-sm">Up to 20</td>
+                  <td className="px-4 py-3 text-center text-sm">Up to 20</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-6 py-4">Custom Domain</td>
-                  <td className="px-6 py-4 text-center">-</td>
-                  <td className="px-6 py-4 text-center">-</td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
+                  <td className="px-4 py-3 text-sm">Custom Domain</td>
+                  <td className="px-4 py-3 text-center text-sm">-</td>
+                  <td className="px-4 py-3 text-center text-sm">-</td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4">Booking System</td>
-                  <td className="px-6 py-4 text-center">-</td>
-                  <td className="px-6 py-4 text-center">-</td>
-                  <td className="px-6 py-4 text-center"><FaCheck className="text-accent-aqua mx-auto" /></td>
+                  <td className="px-4 py-3 text-sm">Booking System</td>
+                  <td className="px-4 py-3 text-center text-sm">-</td>
+                  <td className="px-4 py-3 text-center text-sm">-</td>
+                  <td className="px-4 py-3 text-center"><FaCheck className="text-accent-aqua mx-auto text-sm" /></td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="px-6 py-4">Support Duration</td>
-                  <td className="px-6 py-4 text-center">3 months</td>
-                  <td className="px-6 py-4 text-center">6 months</td>
-                  <td className="px-6 py-4 text-center">12 months</td>
+                  <td className="px-4 py-3 text-sm">Support Duration</td>
+                  <td className="px-4 py-3 text-center text-sm">3 months</td>
+                  <td className="px-4 py-3 text-center text-sm">6 months</td>
+                  <td className="px-4 py-3 text-center text-sm">12 months</td>
                 </tr>
               </tbody>
             </table>
@@ -250,7 +250,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-2 mb-4">Frequently Asked Questions</h2>
@@ -262,7 +262,7 @@ export default function PricingPage() {
             </div>
             <div className="card p-6">
               <h3 className="font-poppins font-semibold text-lg mb-2">How long does it take?</h3>
-              <p className="text-text-light">Most websites are delivered within 3-5 business days. Premium packages with custom features may take 7-10 days.</p>
+              <p className="text-text-light">Basic websites are delivered in 5-7 days. Standard plans take 10-12 days, and Premium packages with custom features take 12-15 days.</p>
             </div>
             <div className="card p-6">
               <h3 className="font-poppins font-semibold text-lg mb-2">Can I upgrade later?</h3>
@@ -277,7 +277,7 @@ export default function PricingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding gradient-bg">
+      <section className="py-12 gradient-bg">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">

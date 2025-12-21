@@ -1,38 +1,42 @@
-# VezxTech - Professional Website Builder for Local Shops
+# VezxTech - Professional Websites for Local Businesses
 
-A complete MERN-stack solution for creating modern websites for local businesses like clinics, electronics stores, salons, and boutiques.
+Built by engineering students to help local businesses in Bangalore get online. We create modern, affordable websites in just 10-15 days!
 
 ## 🚀 Tech Stack
 
-- **Frontend**: Next.js 14 (App Router), React, Tailwind CSS
+- **Frontend**: Next.js 14 (App Router), React 18, Tailwind CSS
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB Atlas
 - **Image Storage**: Cloudinary
-- **Maps**: Mapbox
+- **Fonts**: Montserrat (headings) + Open Sans (body)
 - **Deployment**: Vercel (Frontend) + Render (Backend)
 
 ## 📁 Project Structure
 
 ```
-vezxtech/
-├── web/          # Next.js frontend
-├── server/       # Express backend
-└── shared/       # Shared utilities
+VezxTech/
+├── docs/           # Documentation
+├── server/         # Express.js backend API
+├── web/            # Next.js frontend
+├── PROJECT_STRUCTURE.md
+└── README.md
 ```
+
+See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed folder structure.
 
 ## 🎨 Design System
 
-### Color Palette A
-- Primary Blue: `#2563EB`
-- Secondary Indigo: `#4F46E5`
-- Accent Aqua: `#14B8A6`
-- Light Background: `#F3F4F6`
-- Text Dark: `#1F2937`
-- Text Light: `#4B5563`
+### Colors
+- **Primary Blue**: `#2563EB`
+- **Secondary Indigo**: `#4F46E5`
+- **Accent Aqua**: `#14B8A6`
+- **Background Light**: `#F3F4F6`
+- **Text Dark**: `#1F2937`
+- **Text Light**: `#4B5563`
 
 ### Typography
-- **Headings**: Poppins
-- **Body**: Inter
+- **Headings**: Montserrat (600, 700, 800)
+- **Body**: Open Sans (400, 600)
 
 ## 🛠 Installation
 

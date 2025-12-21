@@ -1,74 +1,93 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import TemplateCard from '../../components/TemplateCard'
 
 export default function TemplatesPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 300)
+      
+      // Hide sidebar when reaching footer
+      const footer = document.querySelector('footer')
+      if (footer) {
+        const footerTop = footer.getBoundingClientRect().top
+        const windowHeight = window.innerHeight
+        setShowSidebar(footerTop > windowHeight)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const templates = [
     {
       title: 'Clinic Template',
       description: 'Professional template for doctors, dentists, and healthcare professionals with appointment booking',
-      image: '/images/templates/clinic.jpg',
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
       category: 'Healthcare',
       slug: 'clinic'
     },
     {
       title: 'Electronics Shop',
       description: 'Modern e-commerce ready template for electronics and gadget stores',
-      image: '/images/templates/electronics.jpg',
+      image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=80',
       category: 'Retail',
       slug: 'electronics'
     },
     {
       title: 'Salon & Spa',
       description: 'Elegant design for beauty salons, spas, and wellness centers',
-      image: '/images/templates/salon.jpg',
+      image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80',
       category: 'Beauty',
       slug: 'salon'
     },
     {
       title: 'Mobile Repair',
       description: 'Quick-turnaround template for mobile and electronics repair shops',
-      image: '/images/templates/mobile-repair.jpg',
+      image: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&q=80',
       category: 'Services',
       slug: 'mobile-repair'
     },
     {
       title: 'Boutique Store',
       description: 'Stylish template for fashion boutiques and clothing stores',
-      image: '/images/templates/boutique.jpg',
+      image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80',
       category: 'Fashion',
       slug: 'boutique'
     },
     {
       title: 'Restaurant',
       description: 'Appetizing design for restaurants, cafes, and food businesses',
-      image: '/images/templates/restaurant.jpg',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80',
       category: 'Food & Beverage',
       slug: 'restaurant'
     },
     {
       title: 'Fitness Center',
       description: 'Energetic template for gyms, yoga studios, and fitness centers',
-      image: '/images/templates/fitness.jpg',
+      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80',
       category: 'Health & Fitness',
       slug: 'fitness'
     },
     {
       title: 'Real Estate',
       description: 'Professional template for real estate agents and property listings',
-      image: '/images/templates/realestate.jpg',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
       category: 'Real Estate',
       slug: 'realestate'
     },
     {
       title: 'Lawyer/Legal',
       description: 'Trustworthy design for law firms and legal professionals',
-      image: '/images/templates/legal.jpg',
+      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80',
       category: 'Professional Services',
       slug: 'legal'
     }
@@ -103,21 +122,25 @@ export default function TemplatesPage() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-white border-b sticky top-20 z-10">
-        <div className="container-custom">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-sm font-medium text-text-dark">Filter by:</span>
-          </div>
-          <div className="flex flex-wrap gap-3 justify-center">
+      <section className={`transition-all duration-300 ${
+        isScrolled && showSidebar
+          ? 'fixed left-0 top-[72px] w-[190px] h-[calc(100vh-72px)] bg-transparent border-r shadow-lg z-40 overflow-y-auto' 
+          : isScrolled && !showSidebar
+          ? 'hidden'
+          : 'py-6 bg-transparent border-b sticky top-[72px] z-40 shadow-sm'
+      }`}>
+        <div className={isScrolled ? 'p-4' : 'container-custom'}>
+          <div className={`flex ${isScrolled ? 'flex-col' : 'items-center flex-wrap'} gap-4`}>
+            <span className={`font-medium text-text-dark ${isScrolled ? 'text-xs' : 'text-sm'}`}>Filter by:</span>
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full border-2 transition-all duration-300 ${
+                className={`${isScrolled ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm'} rounded-full border-2 transition-all duration-300 ${
                   selectedCategory === category
                     ? 'bg-primary-blue border-primary-blue text-white shadow-lg'
                     : 'border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white'
-                }`}
+                } ${isScrolled ? 'w-full text-left' : ''}`}
               >
                 {category}
               </button>
@@ -127,7 +150,7 @@ export default function TemplatesPage() {
       </section>
 
       {/* Templates Grid */}
-      <section className="section-padding bg-background-light">
+      <section className={`section-padding bg-background-light ${isScrolled && showSidebar ? 'ml-[190px]' : ''}`}>
         <div className="container-custom">
           {filteredTemplates.length === 0 ? (
             <div className="text-center py-12">
@@ -157,7 +180,7 @@ export default function TemplatesPage() {
       </section>
 
       {/* Custom Template CTA */}
-      <section className="section-padding bg-white">
+      <section className={`section-padding bg-white ${isScrolled && showSidebar ? 'ml-[190px]' : ''}`}>
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center card p-12">
             <h2 className="heading-3 mb-4">
@@ -173,7 +196,9 @@ export default function TemplatesPage() {
         </div>
       </section>
 
-      <Footer />
+      <div className={isScrolled ? 'ml-0' : ''}>
+        <Footer />
+      </div>
     </>
   )
 }

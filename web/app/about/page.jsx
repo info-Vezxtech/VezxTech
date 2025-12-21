@@ -212,53 +212,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="heading-2 mb-8 text-center">Why Choose VezxTech?</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="card p-6">
-                <h3 className="font-poppins font-semibold text-lg text-text-dark mb-2">
-                  We Understand Your Business
-                </h3>
-                <p className="text-text-light text-sm">
-                  We've worked with dozens of local businesses. We know what works and what doesn't 
-                  for different industries.
-                </p>
-              </div>
-              <div className="card p-6">
-                <h3 className="font-poppins font-semibold text-lg text-text-dark mb-2">
-                  Truly Affordable
-                </h3>
-                <p className="text-text-light text-sm">
-                  As students, we have lower overhead costs, which means better prices for you 
-                  without compromising quality.
-                </p>
-              </div>
-              <div className="card p-6">
-                <h3 className="font-poppins font-semibold text-lg text-text-dark mb-2">
-                  Personal Touch
-                </h3>
-                <p className="text-text-light text-sm">
-                  You work directly with us, not account managers. We're accessible, responsive, 
-                  and genuinely invested in your success.
-                </p>
-              </div>
-              <div className="card p-6">
-                <h3 className="font-poppins font-semibold text-lg text-text-dark mb-2">
-                  Latest Technology
-                </h3>
-                <p className="text-text-light text-sm">
-                  We use cutting-edge tools and frameworks to build fast, secure, and scalable 
-                  websites that will serve you for years.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="section-padding gradient-bg">
         <div className="container-custom">

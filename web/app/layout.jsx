@@ -1,19 +1,22 @@
 import './globals.css'
-import { Inter, Poppins } from 'next/font/google'
+import { Montserrat, Open_Sans } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import { siteConfig, jsonLdWebsite, jsonLdOrganization } from '../lib/seo'
 
-const inter = Inter({ 
+const montserrat = Montserrat({ 
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-montserrat',
+  weight: ['600', '700', '800'],
   display: 'swap',
+  preload: true,
 })
 
-const poppins = Poppins({ 
-  weight: ['400', '500', '600', '700', '800'],
+const openSans = Open_Sans({ 
   subsets: ['latin'],
-  variable: '--font-poppins',
+  variable: '--font-opensans',
+  weight: ['400', '600'],
   display: 'swap',
+  preload: true,
 })
 
 export const metadata = {
@@ -69,8 +72,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <head>
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}

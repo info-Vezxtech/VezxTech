@@ -208,7 +208,7 @@ export default function ContactPage() {
       )}
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-background-light to-white">
+      <section className="pt-28 pb-12 bg-gradient-to-br from-background-light to-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="heading-1 mb-6">
@@ -221,17 +221,17 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <div className="card p-8 sticky top-24">
-                <h2 className="text-2xl font-poppins font-semibold text-text-dark mb-6">
+              <div className="card p-6 sticky top-24">
+                <h2 className="text-xl font-poppins font-semibold text-text-dark mb-4">
                   Contact Information
                 </h2>
                 
-                <div className="space-y-6">
+                <div className="space-y-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-primary-blue bg-opacity-10 rounded-full flex items-center justify-center flex-shrink-0">
                       <FaPhone className="text-primary-blue" />
@@ -288,12 +288,12 @@ export default function ContactPage() {
 
             {/* Onboarding Form */}
             <div className="lg:col-span-2">
-              <div className="card p-8">
-                <h2 className="text-2xl font-poppins font-semibold text-text-dark mb-6">
+              <div className="card p-6">
+                <h2 className="text-xl font-poppins font-semibold text-text-dark mb-4">
                   Project Details
                 </h2>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Business Information */}
                   <div>
                     <h3 className="text-lg font-semibold text-text-dark mb-4">Business Information</h3>

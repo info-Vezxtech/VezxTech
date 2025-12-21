@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import { LogoLight } from './Logo'
 
 const Footer = () => {
@@ -15,6 +15,7 @@ const Footer = () => {
             <p className="text-gray-400 mb-4">
               Empowering local businesses with stunning, affordable websites. Built by students, for entrepreneurs.
             </p>
+            {/* Social media links hidden until accounts are created
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-accent-aqua transition-colors">
                 <FaFacebook size={20} />
@@ -29,6 +30,7 @@ const Footer = () => {
                 <FaLinkedin size={20} />
               </a>
             </div>
+            */}
           </div>
 
           {/* Quick Links */}
@@ -38,8 +40,9 @@ const Footer = () => {
               <li><Link href="/" className="text-gray-400 hover:text-accent-aqua transition-colors">Home</Link></li>
               <li><Link href="/templates" className="text-gray-400 hover:text-accent-aqua transition-colors">Templates</Link></li>
               <li><Link href="/pricing" className="text-gray-400 hover:text-accent-aqua transition-colors">Pricing</Link></li>
-              <li><Link href="/portfolio" className="text-gray-400 hover:text-accent-aqua transition-colors">Portfolio</Link></li>
+              {/* <li><Link href="/portfolio" className="text-gray-400 hover:text-accent-aqua transition-colors">Portfolio</Link></li> */}
               <li><Link href="/about" className="text-gray-400 hover:text-accent-aqua transition-colors">About</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-accent-aqua transition-colors">Contact</Link></li>
             </ul>
           </div>
 

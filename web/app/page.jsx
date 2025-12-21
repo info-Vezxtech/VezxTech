@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import FeatureCard from '../components/FeatureCard'
@@ -116,7 +117,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-8 animate-fade-in">
-              <img src="/logo1.png" alt="VezxTech" className="h-40 w-auto" />
+              <Image src="/logo1.png" alt="VezxTech" width={320} height={160} className="h-40 w-auto" priority quality={85} />
             </div>
             <h1 className="heading-1 mb-6 animate-fade-in">
               Transform Your Local Business with a{' '}
@@ -177,7 +178,7 @@ export default function Home() {
               Ready to Take Your Business Online?
             </h2>
             <p className="text-lg mb-8 opacity-90">
-              Join hundreds of local businesses that have transformed their presence with VezxTech
+              Let us help you establish a professional online presence for your business
             </p>
             <Link href="/contact" className="bg-white text-primary-blue px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-all duration-300 shadow-xl inline-block">
               Start Your Website Today

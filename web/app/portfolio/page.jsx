@@ -10,96 +10,26 @@ export default function PortfolioPage() {
 
   const projects = [
     {
-      title: 'Dr. Sharma Dental Clinic',
-      category: 'Healthcare',
-      image: '/images/portfolio/dental-clinic.jpg',
-      url: '#',
-      description: 'Modern dental clinic website with online appointment booking'
+      title: 'SkillOrbit',
+      category: 'Education Technology',
+      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+      url: 'https://skill-orbit-mini-project.vercel.app/',
+      description: 'Skill matrix and gap analysis web portal for students to assess and improve their competencies'
     },
     {
-      title: 'TechZone Electronics',
-      category: 'Retail',
-      image: '/images/portfolio/electronics.jpg',
-      url: '#',
-      description: 'E-commerce enabled electronics store with product catalog'
-    },
-    {
-      title: 'Radiance Beauty Salon',
-      category: 'Beauty & Wellness',
-      image: '/images/portfolio/salon.jpg',
-      url: '#',
-      description: 'Elegant salon website with service showcase and gallery'
-    },
-    {
-      title: 'QuickFix Mobile Repairs',
-      category: 'Services',
-      image: '/images/portfolio/mobile-repair.jpg',
-      url: '#',
-      description: 'Fast-loading repair shop site with pricing calculator'
-    },
-    {
-      title: 'Chic Boutique',
-      category: 'Fashion',
-      image: '/images/portfolio/boutique.jpg',
-      url: '#',
-      description: 'Stylish boutique website with Instagram integration'
-    },
-    {
-      title: 'Spice Garden Restaurant',
-      category: 'Food & Beverage',
-      image: '/images/portfolio/restaurant.jpg',
-      url: '#',
-      description: 'Restaurant website with menu display and online ordering'
-    },
-    {
-      title: 'FitLife Gym',
-      category: 'Health & Fitness',
-      image: '/images/portfolio/gym.jpg',
-      url: '#',
-      description: 'Dynamic gym website with membership plans and trainer profiles'
-    },
-    {
-      title: 'Prime Properties',
-      category: 'Real Estate',
-      image: '/images/portfolio/realestate.jpg',
-      url: '#',
-      description: 'Real estate portal with property listings and search'
-    },
-    {
-      title: 'Singh & Associates Law Firm',
-      category: 'Professional Services',
-      image: '/images/portfolio/law-firm.jpg',
-      url: '#',
-      description: 'Professional law firm website with consultation booking'
-    },
-    {
-      title: 'Little Stars Preschool',
-      category: 'Education',
-      image: '/images/portfolio/preschool.jpg',
-      url: '#',
-      description: 'Colorful preschool website with admission forms'
-    },
-    {
-      title: 'Auto Care Service Center',
-      category: 'Automotive',
-      image: '/images/portfolio/auto-care.jpg',
-      url: '#',
-      description: 'Car service center with booking and service tracking'
-    },
-    {
-      title: 'Pet Paradise Clinic',
-      category: 'Veterinary',
-      image: '/images/portfolio/vet-clinic.jpg',
-      url: '#',
-      description: 'Veterinary clinic with pet care tips and appointment system'
+      title: 'NovaMind AI',
+      category: 'Artificial Intelligence',
+      image: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&q=80',
+      url: 'https://nova-mind-lake.vercel.app/',
+      description: 'AI-powered assistant providing intelligent solutions and automated support'
     }
   ]
 
   const stats = [
-    { number: '150+', label: 'Happy Clients' },
-    { number: '200+', label: 'Websites Delivered' },
-    { number: '98%', label: 'Satisfaction Rate' },
-    { number: '3-5', label: 'Days Avg Delivery' }
+    { number: '2', label: 'Projects Completed' },
+    { number: '100%', label: 'Success Rate' },
+    { number: 'Academic', label: 'Project Type' },
+    { number: 'Full Stack', label: 'Development' }
   ]
 
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))]
@@ -120,8 +50,8 @@ export default function PortfolioPage() {
               Our <span className="gradient-text">Portfolio</span>
             </h1>
             <p className="text-body mb-8">
-              Check out some of our recent work. Every website is crafted with care, 
-              tailored to each business's unique needs and goals.
+              Check out our recent academic projects. These are full-stack applications 
+              developed during our college coursework, showcasing our technical skills and innovation.
             </p>
           </div>
         </div>
@@ -185,17 +115,17 @@ export default function PortfolioPage() {
             <div className="card p-8 md:p-12 text-center">
               <div className="text-5xl text-primary-blue mb-6">"</div>
               <p className="text-xl text-text-dark mb-6 italic">
-                VezxTech transformed my clinic's online presence. The website is beautiful, 
-                professional, and has helped me attract 40% more patients. Their team is 
-                responsive and truly cares about their clients' success.
+                These academic projects showcase our ability to build full-stack applications 
+                with modern technologies. SkillOrbit helps students identify skill gaps, while 
+                NovaMind AI demonstrates our expertise in AI integration and intelligent solutions.
               </p>
               <div className="flex items-center justify-center space-x-3">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary-blue to-accent-aqua rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-2xl">D</span>
+                  <span className="text-white font-bold text-2xl">V</span>
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-text-dark">Dr. Meera Patel</h4>
-                  <p className="text-sm text-text-light">Patel Dental Care, Mumbai</p>
+                  <h4 className="font-semibold text-text-dark">VezxTech Team</h4>
+                  <p className="text-sm text-text-light">College Academic Projects</p>
                 </div>
               </div>
             </div>
@@ -208,10 +138,10 @@ export default function PortfolioPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
-              Ready to Join Our Success Stories?
+              Ready to Build Your Business Website?
             </h2>
             <p className="text-lg mb-8 opacity-90">
-              Let's create something amazing for your business too
+              Let's create something amazing for your business with the same dedication
             </p>
             <a href="/contact" className="bg-white text-primary-blue px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-all duration-300 shadow-xl inline-block">
               Start Your Project

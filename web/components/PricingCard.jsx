@@ -20,24 +20,24 @@ const PricingCard = ({
         </div>
       )}
       
-      <div className="p-8">
-        <h3 className="text-2xl font-poppins font-bold text-text-dark mb-2">
+      <div className="p-6">
+        <h3 className="text-xl font-poppins font-bold text-text-dark mb-1">
           {name}
         </h3>
-        <p className="text-text-light mb-6">
+        <p className="text-text-light text-sm mb-4">
           {description}
         </p>
         
-        <div className="mb-6">
-          <span className="text-4xl font-bold text-primary-blue">₹{price}</span>
-          <span className="text-text-light ml-2">{period}</span>
+        <div className="mb-4">
+          <span className="text-3xl font-bold text-primary-blue">₹{price}</span>
+          <span className="text-text-light text-sm ml-2">{period}</span>
         </div>
         
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-2 mb-6">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-start space-x-3">
-              <FaCheck className="text-accent-aqua mt-1 flex-shrink-0" />
-              <span className="text-text-dark">{feature}</span>
+            <li key={index} className="flex items-start space-x-2">
+              <FaCheck className="text-accent-aqua mt-0.5 flex-shrink-0 text-sm" />
+              <span className="text-text-dark text-sm">{feature}</span>
             </li>
           ))}
         </ul>
