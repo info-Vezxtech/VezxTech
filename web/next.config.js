@@ -51,11 +51,7 @@ const nextConfig = {
     return config
   },
 
-  // Environment variables
-  env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
-    NEXT_PUBLIC_MAPBOX_TOKEN: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
-  },
+  // ...existing code...
 
   // Headers for security
   async headers() {
