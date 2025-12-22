@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next'
+
 
 export default function sitemap() {
   const baseUrl = 'https://vezxtech.com'
