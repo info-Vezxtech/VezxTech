@@ -13,8 +13,8 @@ const PricingCard = ({
   return (
     <div className={`card relative ${popular ? 'ring-2 ring-primary-blue scale-105' : ''}`}>
       {popular && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <span className="bg-accent-aqua text-white px-4 py-1 rounded-full text-sm font-medium">
+        <div className="absolute -top-7 left-1/2 -translate-x-1/2 z-10 w-max">
+          <span className="bg-accent-aqua text-white px-4 py-1 rounded-full text-sm font-medium shadow-lg border-2 border-white">
             Most Popular
           </span>
         </div>
