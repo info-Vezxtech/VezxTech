@@ -6,4 +6,4 @@
   command = "pnpm build"
 
 [[plugins]]
-  package = "@netlify/next"
+  package = "@netlify/plugin-nextjs"
