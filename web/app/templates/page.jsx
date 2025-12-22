@@ -9,11 +9,11 @@ export default function TemplatesPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [isScrolled, setIsScrolled] = useState(false)
   const [showSidebar, setShowSidebar] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 300)
-      
       // Hide sidebar when reaching footer
       const footer = document.querySelector('footer')
       if (footer) {
@@ -22,9 +22,16 @@ export default function TemplatesPage() {
         setShowSidebar(footerTop > windowHeight)
       }
     }
-
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 800)
+    }
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleResize)
+    handleResize(); // set initial value
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   const templates = [
@@ -123,11 +130,13 @@ export default function TemplatesPage() {
 
       {/* Filter Section */}
       <section className={`transition-all duration-300 ${
-        isScrolled && showSidebar
-          ? 'fixed left-0 top-[72px] w-[190px] h-[calc(100vh-72px)] bg-transparent border-r shadow-lg z-40 overflow-y-auto' 
-          : isScrolled && !showSidebar
+        isMobile
           ? 'hidden'
-          : 'py-6 bg-transparent border-b sticky top-[72px] z-40 shadow-sm'
+          : isScrolled && showSidebar
+            ? 'fixed left-0 top-[72px] w-[190px] h-[calc(100vh-72px)] bg-transparent border-r shadow-lg z-40 overflow-y-auto'
+            : isScrolled && !showSidebar
+              ? 'hidden'
+              : 'py-6 bg-transparent border-b sticky top-[72px] z-40 shadow-sm'
       }`}>
         <div className={isScrolled ? 'p-4' : 'container-custom'}>
           <div className={`flex ${isScrolled ? 'flex-col' : 'items-center flex-wrap'} gap-4`}>
@@ -150,7 +159,7 @@ export default function TemplatesPage() {
       </section>
 
       {/* Templates Grid */}
-      <section className={`section-padding bg-background-light ${isScrolled && showSidebar ? 'ml-[190px]' : ''}`}>
+      <section className={`section-padding bg-background-light ${isScrolled && showSidebar && !isMobile ? 'ml-[190px]' : ''}`}>
         <div className="container-custom">
           {filteredTemplates.length === 0 ? (
             <div className="text-center py-12">
@@ -180,7 +189,7 @@ export default function TemplatesPage() {
       </section>
 
       {/* Custom Template CTA */}
-      <section className={`section-padding bg-white ${isScrolled && showSidebar ? 'ml-[190px]' : ''}`}>
+      <section className={`section-padding bg-white ${isScrolled && showSidebar && !isMobile ? 'ml-[190px]' : ''}`}>
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center card p-12">
             <h2 className="heading-3 mb-4">
