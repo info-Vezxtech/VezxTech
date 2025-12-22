@@ -117,7 +117,15 @@ export default function Home() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-8 animate-fade-in">
-              <Image src="/logo1.png" alt="VezxTech" width={320} height={160} className="h-40 w-auto" priority quality={85} />
+              <Image 
+                src="/logo1.png" 
+                alt="VezxTech" 
+                width={160} 
+                height={160} 
+                className="h-40 w-40 rounded-full object-cover border-4 border-primary-blue shadow-lg bg-white" 
+                priority 
+                quality={85} 
+              />
             </div>
             <h1 className="heading-1 mb-6 animate-fade-in">
               Transform Your Local Business with a{' '}
