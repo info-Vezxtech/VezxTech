@@ -6,12 +6,7 @@
       "use": "@vercel/next"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/web/$1"
-    }
-  ],
+  // removed custom routes block to allow default Next.js routing
   "env": {
   "NEXT_PUBLIC_API_URL": "https://vezxtech.onrender.com/api"
 }
