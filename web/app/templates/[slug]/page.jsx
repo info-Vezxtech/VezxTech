@@ -7,6 +7,8 @@ import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import { FaArrowLeft, FaCheck, FaWhatsapp } from 'react-icons/fa'
 
+export const runtime = 'edge'
+
 export default function TemplateDetailPage() {
   const params = useParams()
   const slug = params.slug
