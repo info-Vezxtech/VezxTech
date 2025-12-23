@@ -1,7 +1,8 @@
-# Render configuration for backend deployment
+# Render configuration for full-stack deployment
 # Copy this to render.yaml in your repository root
 
 services:
+  # Backend API
   - type: web
     name: vezxtech-api
     env: node
@@ -25,3 +26,19 @@ services:
         sync: false
       - key: CLOUDINARY_API_SECRET
         sync: false
+
+  # Frontend Next.js App
+  - type: web
+    name: vezxtech-frontend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd web && npm install && npm run build
+    startCommand: cd web && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://vezxtech-api.onrender.com
+      - key: PORT
+        value: 3000
