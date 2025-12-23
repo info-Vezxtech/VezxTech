@@ -86,19 +86,6 @@ const ShopSchema = new Schema(
   }
 )
 
-// Create slug from name before saving
-ShopSchema.pre('save', function(next) {
-  if (this.isModified('name')) {
-    this.slug = this.name
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim()
-  }
-  next()
-})
-
 // Indexes (slug already indexed via unique: true)
 ShopSchema.index({ category: 1 })
 ShopSchema.index({ status: 1 })

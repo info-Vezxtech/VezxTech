@@ -45,8 +45,25 @@ router.post(
         ? services.split(',').map((s) => s.trim())
         : services
 
+      // Generate unique slug
+      let slug = shopName
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim();
+      
+      // Check if slug exists and make it unique
+      let uniqueSlug = slug;
+      let counter = 1;
+      while (await Shop.findOne({ slug: uniqueSlug })) {
+        uniqueSlug = `${slug}-${counter}`;
+        counter++;
+      }
+
       const shop = new Shop({
         name: shopName,
+        slug: uniqueSlug,
         ownerName,
         phone,
         whatsapp: phone, // Default whatsapp to phone
@@ -62,6 +79,67 @@ router.post(
       })
 
       await shop.save()
+
+      // Send WhatsApp notification to multiple website heads
+      try {
+        const { sendWhatsAppMessage } = await import('../utils/whatsapp.js');
+        const websiteHeadNumbers = process.env.WEBSITE_HEAD_WHATSAPP.split(',').map(n => n.trim());
+        
+        // Create detailed WhatsApp message
+        let msg = `🎉 *New Contact Form Submission - VezxTech*\n\n`;
+        msg += `🏪 *Shop Name:* ${shopName}\n`;
+        msg += `👤 *Owner:* ${ownerName}\n`;
+        msg += `📱 *Phone:* ${phone}\n`;
+        msg += `📧 *Email:* ${email}\n`;
+        msg += `🏢 *Category:* ${category || 'Not specified'}\n`;
+        msg += `📍 *Address:* ${address}\n`;
+        if (mapLink) msg += `🗺️ *Maps:* ${mapLink}\n`;
+        msg += `\n📝 *Description:*\n${description}\n`;
+        if (services) msg += `\n🛠️ *Services:* ${services}\n`;
+        if (template) msg += `🎨 *Template:* ${template}\n`;
+        if (budget) msg += `💰 *Budget:* ${budget}\n`;
+        if (timeline) msg += `⏰ *Timeline:* ${timeline}\n`;
+        if (additionalNotes) msg += `\n📌 *Notes:* ${additionalNotes}\n`;
+        if (req.body.images && req.body.images.length > 0) {
+          msg += `\n📸 *Photos:* ${req.body.images.length} image(s) uploaded\n`;
+        }
+        msg += `\n🕐 *Time:* ${new Date().toLocaleString()}`;
+        
+        console.log('📱 Attempting to send WhatsApp to:', websiteHeadNumbers);
+        for (const number of websiteHeadNumbers) {
+          if (number) {
+            const result = await sendWhatsAppMessage(number, msg);
+            console.log('✅ WhatsApp sent to:', number);
+          }
+        }
+      } catch (err) {
+        console.error('❌ WhatsApp notification failed:', err.message);
+        console.error('Error details:', err);
+      }
+
+      // Send Email notification
+      try {
+        const { sendEmailNotification } = await import('../utils/email.js');
+        await sendEmailNotification({
+          shopName,
+          ownerName,
+          phone,
+          email,
+          category,
+          address,
+          mapLink,
+          description,
+          services,
+          template,
+          budget,
+          timeline,
+          additionalNotes,
+          images: req.body.images || []
+        });
+        console.log('✅ Email notification sent successfully');
+      } catch (err) {
+        console.error('❌ Email notification failed:', err.message);
+      }
 
       res.status(201).json({
         message: 'Shop request submitted successfully',

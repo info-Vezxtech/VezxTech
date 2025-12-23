@@ -431,6 +431,19 @@ export default function ContactPage() {
                           onChange={handleChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent"
                           onBlur={handleBlur}
+                          placeholder="Paste your Google Maps link here (optional)"
+                        />
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-text-dark mb-2">
+                          Business Description *
+                        </label>
+                        <textarea
+                          name="description"
+                          value={formData.description}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
                           required
                           rows={4}
                           className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent ${

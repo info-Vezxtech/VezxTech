@@ -21,5 +21,8 @@
     "mern-stack"
   ],
   "author": "VezxTech Team",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^7.0.12"
+  }
 }
