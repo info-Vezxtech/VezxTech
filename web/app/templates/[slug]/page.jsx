@@ -72,7 +72,7 @@ export default function TemplateDetailPage() {
         'Working Hours & Location'
       ],
       previews: [
-        'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80', // Placeholder - homepage.png missing
+        '/images/templates/salon/homepage.png',
         '/images/templates/salon/services.png',
         '/images/templates/salon/booking.png'
       ],
@@ -157,7 +157,7 @@ export default function TemplateDetailPage() {
       ],
       previews: [
         '/images/templates/fitness/homepage.png',
-        'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80', // Placeholder - schedule.png missing
+        '/images/templates/fitness/schedule.png',
         '/images/templates/fitness/membership.png'
       ],
       previewLabels: ['Homepage', 'Classes Schedule', 'Join Now']
@@ -179,7 +179,7 @@ export default function TemplateDetailPage() {
       previews: [
         '/images/templates/realestate/homepage.png',
         '/images/templates/realestate/listings.png',
-        'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80'  // Placeholder - contact.png missing
+        '/images/templates/realestate/contact.png'
       ],
       previewLabels: ['Homepage', 'Property Listings', 'Contact Agent']
     },
