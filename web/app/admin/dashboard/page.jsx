@@ -32,7 +32,8 @@ export default function AdminDashboard() {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/shops`, {
         headers: {
           'Authorization': `Bearer ${token}`
-        }
+        },
+        cache: 'no-store'
       })
 
       if (response.ok) {
