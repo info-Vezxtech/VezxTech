@@ -33,42 +33,16 @@ export default function Loading() {
           <div className="flex items-center justify-center space-x-1 text-gray-600">
             <span>Loading</span>
             <span className="animate-bounce">.</span>
-            <span className="animate-bounce delay-100">.</span>
-            <span className="animate-bounce delay-200">.</span>
+            <span className="animate-bounce [animation-delay:0.1s]">.</span>
+            <span className="animate-bounce [animation-delay:0.2s]">.</span>
           </div>
         </div>
 
         {/* Progress bar */}
         <div className="mt-6 w-48 h-1 mx-auto bg-gray-200 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-purple-600 to-blue-600 rounded-full animate-progress"></div>
+          <div className="h-full bg-gradient-to-r from-purple-600 to-blue-600 rounded-full animate-[progress_1.5s_ease-in-out_infinite]"></div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes progress {
-          0% {
-            width: 0%;
-            margin-left: 0%;
-          }
-          50% {
-            width: 50%;
-            margin-left: 25%;
-          }
-          100% {
-            width: 100%;
-            margin-left: 0%;
-          }
-        }
-        .animate-progress {
-          animation: progress 1.5s ease-in-out infinite;
-        }
-        .delay-100 {
-          animation-delay: 0.1s;
-        }
-        .delay-200 {
-          animation-delay: 0.2s;
-        }
-      `}</style>
     </div>
   )
 }
