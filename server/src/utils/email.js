@@ -2,8 +2,8 @@
 export async function sendEmailNotification(formData) {
   try {
     // Skip email if API key not configured
-    if (!process.env.BREVO_SMTP_KEY) {
-      console.log('⚠️ Email skipped: BREVO_SMTP_KEY not configured');
+    if (!process.env.BREVO_API_KEY) {
+      console.log('⚠️ Email skipped: BREVO_API_KEY not configured');
       return null;
     }
     const emailContent = `
@@ -128,7 +128,7 @@ export async function sendEmailNotification(formData) {
       method: 'POST',
       headers: {
         'accept': 'application/json',
-        'api-key': process.env.BREVO_SMTP_KEY,
+        'api-key': process.env.BREVO_API_KEY,
         'content-type': 'application/json'
       },
       body: JSON.stringify({
