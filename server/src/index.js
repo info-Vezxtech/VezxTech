@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 5000
 app.use(helmet())
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://vezxtech.com', 'https://www.vezxtech.com', 'https://vezx-tech-web.vercel.app', 'https://vezxtech-1.onrender.com']
+    ? ['https://vezxtech.com', 'https://www.vezxtech.com', 'https://vezx-tech-web.vercel.app', 'https://vezxtech-1.onrender.com', 'https://vezxtech-frontend.onrender.com']
     : ['http://localhost:3000', 'http://localhost:3001'],
   credentials: true
 }))

@@ -39,6 +39,6 @@ services:
       - key: NODE_ENV
         value: production
       - key: NEXT_PUBLIC_API_URL
-        value: https://vezxtech-api.onrender.com
+        value: https://vezxtech-api.onrender.com/api
       - key: PORT
         value: 3000
