@@ -1,18 +1,11 @@
-import nodemailer from 'nodemailer';
-
-// Create transporter with Brevo SMTP
-const transporter = nodemailer.createTransport({
-  host: 'smtp-relay.brevo.com',
-  port: 587,
-  secure: false, // Use TLS
-  auth: {
-    user: process.env.BREVO_SMTP_USER,
-    pass: process.env.BREVO_SMTP_KEY
-  }
-});
-
+// Using Brevo API instead of SMTP (works on Render free tier)
 export async function sendEmailNotification(formData) {
   try {
+    // Skip email if API key not configured
+    if (!process.env.BREVO_SMTP_KEY) {
+      console.log('⚠️ Email skipped: BREVO_SMTP_KEY not configured');
+      return null;
+    }
     const emailContent = `
       <html>
         <head>
@@ -130,18 +123,38 @@ export async function sendEmailNotification(formData) {
       </html>
     `;
 
-    const mailOptions = {
-      from: `"VezxTech Notifications" <${process.env.BREVO_FROM_EMAIL}>`,
-      to: process.env.NOTIFICATION_EMAIL,
-      subject: `🔔 New Contact Submission: ${formData.shopName}`,
-      html: emailContent
-    };
+    // Use Brevo API instead of SMTP
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'api-key': process.env.BREVO_SMTP_KEY,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        sender: {
+          name: 'VezxTech Notifications',
+          email: process.env.BREVO_FROM_EMAIL
+        },
+        to: [
+          { email: process.env.NOTIFICATION_EMAIL }
+        ],
+        subject: `🔔 New Contact Submission: ${formData.shopName}`,
+        htmlContent: emailContent
+      })
+    });
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent successfully:', info.messageId);
-    return info;
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`Brevo API error: ${error}`);
+    }
+
+    const result = await response.json();
+    console.log('✅ Email sent successfully via Brevo API:', result.messageId);
+    return result;
   } catch (error) {
     console.error('❌ Email send error:', error.message);
-    throw error;
+    // Don't throw - just log the error so form submission still succeeds
+    return null;
   }
 }
