@@ -52,7 +52,7 @@ export default function TemplatesPage() {
     {
       title: 'Salon & Spa',
       description: 'Elegant design for beauty salons, spas, and wellness centers',
-      image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80',
+      image: '/images/templates/salon/homepage.png',
       category: 'Beauty',
       slug: 'salon'
     },
@@ -80,14 +80,14 @@ export default function TemplatesPage() {
     {
       title: 'Fitness Center',
       description: 'Energetic template for gyms, yoga studios, and fitness centers',
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80',
+      image: '/images/templates/fitness/schedule.png',
       category: 'Health & Fitness',
       slug: 'fitness'
     },
     {
       title: 'Real Estate',
       description: 'Professional template for real estate agents and property listings',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
+      image: '/images/templates/realestate/contact.png',
       category: 'Real Estate',
       slug: 'realestate'
     },
