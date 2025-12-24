@@ -1,9 +1,4 @@
 {
-  "version": 2,
-  "buildCommand": "cd web && npm install && npm run build",
-  "outputDirectory": "web/.next",
-  "installCommand": "cd web && npm install",
-  "framework": "nextjs",
   "env": {
     "NEXT_PUBLIC_API_URL": "https://vezxtech.onrender.com/api"
   }
